@@ -9,7 +9,7 @@
     <style type="text/css">
         .widget {
             padding: 1em;
-            margin: 1em 1em 0 0;
+            margin: 0 1em 0 0;
             border: 1px solid black;
             width: 200px;
             float: left;
@@ -21,9 +21,14 @@
   </head>
   <body>
 
-    <div>
+    <p>The two boxes ('widgets') below are have two instances of the same 'widget' component attached to them.
+    <p>The idea is that, when you click "Change color!" both change becuase the button fires a "changeColor" event on the document, and the widget components are listening for this event.
+    <p>Clicking "Turn this'un off" removes the event listener for that component instance. The expected behaviour is that the one you've turned off should stop changing color, and the other should continue.
+    <p>But, in Flight 1.1.1, calling <code>this.off</code> removes <em>all</em> listeners to "changeColor" on the document.
+
+    <p>
         <button id="change">Change color!</button>
-    </div>
+    </p>
 
     <div class="widget" id="widget-1">
         <button>Turn this'un off</button>
